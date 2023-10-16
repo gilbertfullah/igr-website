@@ -16,9 +16,7 @@ def home(request):
     
     return render(request, 'home.html', context) 
 
-def release_detail(request, release_id):
-    release = get_object_or_404(Release, id=release_id)
-    return render(request, 'home.html', {'release': release})
+
 
 def event_detail(request, event_id):
     event = get_object_or_404(Events, id=news_id)

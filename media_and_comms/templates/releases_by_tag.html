@@ -47,174 +47,6 @@
         });
     </script>
 
-    <style>
-        .inner-banner {
-            background: url(../images/innerbanner.jpg) no-repeat center;
-            background-size: cover;
-            position: relative;
-            z-index: 0;
-            margin-top: 120px; }
-
-        .inner-banner:before {
-            content: "";
-            background: rgba(0, 0, 0, 0.5);
-            position: absolute;
-            top: 0;
-            min-height: 100%;
-            left: 0;
-            right: 0;
-            z-index: -1; }
-
-        @media (max-width: 991px) {
-            .inner-banner {
-            margin-top: 65px; } }
-
-        @media (max-width: 568px) {
-            .inner-banner {
-            margin-top: 60px; }
-        }
-
-        .w3l-breadcrumb ul li a {
-            display: inline-block;
-            color: #ffffff;
-            transition: 0.5s; }
-
-        .w3l-breadcrumb ul li a:hover {
-            color: var(--primary-color); }
-
-        .w3l-breadcrumb ul {
-            padding-left: 0;
-            list-style-type: none;
-            margin-top: 12px;
-            margin-bottom: 0; }
-
-        .w3l-breadcrumb ul li {
-            color: #ffffff;
-            display: inline-block;
-            position: relative;
-            font-weight: 400;
-            font-size: 17px;
-            margin-left: 10px;
-            margin-right: 10px; }
-
-        .w3l-breadcrumb ul li:nth-child(1):before {
-            content: '';
-            position: absolute;
-            right: -15px;
-            top: 11px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--primary-color); }
-            
-        .w3l-breadcrumb ul li a {
-            display: inline-block;
-            color: #ffffff;
-            transition: 0.5s; }
-
-        .w3l-singleblock1 {
-            max-width: 850px;
-            margin: auto; }
-
-        h3.blog-desc-big {
-            display: block;
-            font-size: 34px;
-            line-height: 44px;
-            font-weight: 600;
-            color: var(--heading-color);
-            margin-bottom: 20px;
-            transition: .3s ease;
-            -webkit-transition: .3s ease;
-            -ms-transition: .3s ease;
-            -o-transition: .3s ease; }
-            
-        @media (max-width: 768px) {
-            h3.blog-desc-big {
-                font-size: 28px;
-                line-height: 38px; }
-            .blog-post-main .blockquote {
-                font-size: 20px; }
-            h3.blog-desc {
-                font-size: 24px;
-                line-height: 32px; } }
-        
-        .w3l-blogblock a.blog-desc-big {
-            display: block;
-            font-size: 26px;
-            line-height: 34px;
-            font-weight: 600;
-            color: var(--heading-color);
-            margin-bottom: 20px;
-            transition: .3s ease;
-            -webkit-transition: .3s ease;
-            -ms-transition: .3s ease;
-            -o-transition: .3s ease; }
-
-            .w3l-blogblock a.blog-desc-big:hover {
-            color: var(--primary-color); }
-
-        .w3l-blogblock .entry-meta a,
-        .w3l-blogblock .entry-meta span {
-            font-size: 18px; }
-
-        .d-grid {
-            display: grid; }
-
-        .buttons-singles a {
-            color: #999;
-            font-size: 18px;
-            margin-right: 20px;
-            display: inline-block; }
-        
-        .buttons-singles.tags a {
-            font-size: 15px;
-            margin-right: 5px; }
-
-        .buttons-singles.tags a {
-            color: var(--font-color);
-            font-size: 16px;
-            margin-right: 10px;
-            display: inline-block;
-            padding: 0 10px;
-            background: var(--bg-color);
-            box-shadow: rgba(1, 1, 1, 0.05) 1px 1px 5px 0px;
-            border-radius: var(--border-radius); }
-
-        .tags a {
-            font-size: 15px;
-            margin-right: 5px; }
-
-        .left-right {
-            grid-template-columns: auto auto;
-            grid-gap: 50px;
-            justify-content: space-between; }
-
-        @media (max-width: 736px) {
-            .left-right {
-                grid-template-columns: auto;
-                grid-gap: 20px; }
-            .buttons-singles h4 {
-                font-size: 20px; } }
-
-                .inline-header {
-                    display: inline; /* Display the "Tags" h4 element inline */
-                    margin-right: 10px; /* Add some spacing between "Tags" and the list of tags */
-                }
-                
-                .inline-tags {
-                    display: inline; /* Display the list of tags inline */
-                    list-style: none; /* Remove list bullet points */
-                    padding: 0; /* Remove default padding */
-                }
-                
-                .inline-tags li {
-                    display: inline; /* Display list items inline */
-                    margin-right: 10px; /* Add some spacing between tags */
-                }
-                
-
-    </style>
-
   </head>
   <body>
     
@@ -252,178 +84,48 @@
     </nav>
   <!-- END nav -->
   
-  <!-- //header -->
-        <div class="inner-banner">
-            <section class="w3l-breadcrumb py-5">
-                <div class="container py-lg-5 py-md-3">
-                    <h2 class="title">{{ release.title }}</h2>
-                </div>
-            </section>
-        </div>
-        
-        <!-- banner bottom shape -->
-        <div class="py-md-5 pt-5 pb-4 w3l-singleblock1">
-            <div class="container mt-md-3">
-                <h3 class="blog-desc-big">{{ release.title }}</h3>
-                <div class="blog-post-align">
-                    <div class="entry-meta">
-                        <span class="comments-link"> <a href="#reply">Leave a Comment</a> </span> /
-                        <span class="posted-on"><span class="published"> {{ release.published_date }}</span></span>
-                    </div>
-                </div>
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/igr office.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Releases with Tag: {{ tag.name }}</h2>
             </div>
+          </div>
         </div>
+      </div>
+      
+    </div>
+  </div>
 
-        <section class="blog-post-main w3l-homeblock1">
-            <!--/blog-post-->
-            <div class="blog-content-inf pb-5">
-                <div class="container pb-lg-4">
-                    <div class="single-post-image">
-                        <div class="post-content">
-                            <img src="{{ release.image.url }}" class="radius-image-full img-fluid mb-5" alt="" />
-                        </div>
-                    </div>
-                    <div class="single-post-content">
-                        <p class="alphabet mb-4">{{ release.content }}</p>
-                        {% if release.document %} 
-                            <button class="btn btn-style btn-primary mt-5 mb-5">View Document</button></div>
-                        {% endif %}
-                        <div class="d-grid left-right mt-5 pb-md-5">
-                            <div class="buttons-singles tags">
-                                <h4 class="inline-header">Tags:</h4>
-                                <ul class="inline-tags">
-                                    {% for tag in tags %}
-                                        <li><a href="{% url 'releases_by_tag' tag.slug %}">{{ tag.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-
-                            </div>
-                            <div class="buttons-singles">
-                                <h4 class="inline-header">Share :</h4>
-                                <a href="#blog-share"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg></a>
-                                <a href="#blog-share"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 128 128"><path fill="#1d9bf0" d="M114.896 37.888c.078 1.129.078 2.257.078 3.396c0 34.7-26.417 74.72-74.72 74.72v-.02A74.343 74.343 0 0 1 0 104.21c2.075.25 4.16.375 6.25.38a52.732 52.732 0 0 0 32.615-11.263A26.294 26.294 0 0 1 14.331 75.09c3.937.76 7.993.603 11.857-.453c-12.252-2.475-21.066-13.239-21.066-25.74v-.333a26.094 26.094 0 0 0 11.919 3.287C5.5 44.139 1.945 28.788 8.913 16.787a74.535 74.535 0 0 0 54.122 27.435a26.277 26.277 0 0 1 7.598-25.09c10.577-9.943 27.212-9.433 37.154 1.139a52.696 52.696 0 0 0 16.677-6.376A26.359 26.359 0 0 1 112.92 28.42A52.227 52.227 0 0 0 128 24.285a53.35 53.35 0 0 1-13.104 13.603z"/></svg></a>
-                                <a href="#blog-share"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3z"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg></a>
-                            </div>
-                        </div>
-        
-        
-                        <div class="comments mt-5 pt-lg-4">
-                            {% if post.comments.count %}
-                            <h4 class="side-title ">Comments {{ post.comments.count }}</h4>
-                            {% else %}
-                            <h4 class="side-title ">No Comment</h4>
+  <div class="site-section">
+    
+    <section class="faq-section">
+        <div class="container py-5 pb-5">
+            <div class="row">
+                {% for release in releases %}
+                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-lg-4">
+                        <div class="card fundraise-item">
+                            {% if release.image and release.image.url %}
+                                <img class="card-img-top" src="{{ release.image.url }}" alt="{{ release.title }}" class="img-fluid" style="height: 350px; width: 100%;">
                             {% endif %}
-                            {% for comment in comments %}
-                            <div class="media mt-4">
-                                <div class="media-body">
-        
-                                    <ul class="time-rply mb-2">
-                                        <li><a href="#URL" class="name mt-0 mb-2 d-block">{{ comment.author }}</a>
-                                            {{ comment.created_at }}
-        
-                                        </li>
-                                        <li class="reply-last">
-                                            <a href="#reply" class="reply">
-                                                Reply</a>
-                                        </li>
-                                    </ul>
-                                    <p>{{ comment.body }}</p>
-                                    {% for reply in comment.replies.all %}
-                                    <div class="media second mt-4 p-0 pt-2">
-                                        <div class="media-body">
-                                            <ul class="time-rply mb-2">
-                                                <li><a href="#URL" class="name mt-0 mb-2 d-block">{{ reply.author }}</a>
-                                                    {{ reply.created_at }}
-                                                </li>
-                                                <li class="reply-last">
-                                                    <a href="#reply" class="reply"> Reply</a>
-                                                </li>
-                                            </ul>
-                                            <p>{{ reply.body }}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">{{ release.title }}</a></h3>
+                                <span class="donation-time mb-3 d-block">{{ release.published_date }}</span>
+                                <p class="card-text">{{ release.content|truncatechars:150|safe }}</p>
                             </div>
-                            {% endfor %}
+                            <p><a href="{% url 'release_detail' release.id %}" class="link-underline px-2">Read More</a></p>
                         </div>
-        
-                        <div class="leave-comment-form mt-5 pt-lg-4" id="reply">
-                            <h4 class="side-title mb-2">Add a Comment or leave a Reply</h4>
-                            <p class="mb-4">Your email address will not be published. Required fields are marked *
-                            </p>
-                            <form action="{% url "add_comment" %}" method="post">
-        
-                                <div class="form-group">
-                                    <textarea name="Comment" class="form-control" placeholder="Your Comment*" required=""
-                                        spellcheck="false"></textarea>
-                                </div>
-                                <div class="input-grids row">
-        
-                                    <div class="form-group col-lg-6">
-                                        <input type="text" name="Name" class="form-control" placeholder="Your Name*"
-                                            required="">
-                                    </div>
-                                    <div class="form-group col-lg-6">
-                                        <input type="email" name="Email" class="form-control" placeholder="Email*" required="">
-                                    </div>
-                                </div>
-        
-                                <div class="submit text-right">
-                                    <button class="btn btn-style btn-primary">Post Comment </button>
-                                </div>
-                            </form>
-                        </div>
-        
-                        <!-- related posts -->
-                        <div class="item mt-5 pt-lg-5">
-                            <h3 class="section-title-left mb-4">Related posts for you </h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="list-view list-view1">
-                                        <div class="grids5-info">
-                                            <a href="blog-single.html" class="d-block zoom"><img src="assets/images/blog5.jpg"
-                                                    alt="" class="img-fluid radius-image news-image"></a>
-                                            <div class="blog-info align-self">
-                                                <a href="blog-single.html" class="blog-desc1">Request for an audience with First Lady Melania
-                                                </a>
-                                                <div class="entry-meta mb-3"> 
-                                                    <span class="cat-links"><a href="#url" rel="category tag">Uncategorized</a></span> / 
-                                                    <span class="posted-on"><span class="published"> August 18, 2020</span></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <div class="col-md-6 mt-md-0 mt-5">
-                                    <div class="list-view list-view1">
-                                        <div class="grids5-info">
-                                            <a href="blog-single.html" class="d-block zoom"><img src="assets/images/blog6.jpg"
-                                                    alt="" class="img-fluid radius-image news-image"></a>
-                                            <div class="blog-info align-self">
-                                                <a href="blog-single.html" class="blog-desc1">Charity, Faith and hope, Help the poor, Help the Homeless</a>
-                                                    <div class="entry-meta mb-3"> 
-                                                        <span class="cat-links"><a href="#url" rel="category tag">Uncategorized</a></span> / 
-                                                        <span class="posted-on"><span class="published"> August 18, 2020</span></span>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- //related posts -->
                     </div>
-                </div>
-                <!--//blog-post-->
+                {% endfor %}
             </div>
-        </section>
+        </div>
+      </section>
+  </div>
 
   
-        
-        
-
-
+  
   <footer class="footer">
     <div class="container">
       <div class="row mb-5">
@@ -515,6 +217,7 @@
       </div>
     </div>
   </footer>
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

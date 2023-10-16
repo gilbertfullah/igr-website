@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils import timezone
+from ckeditor.fields import RichTextField
+from taggit.managers import TaggableManager
 import uuid
 
 class Release(models.Model):
@@ -9,7 +12,7 @@ class Release(models.Model):
     author = models.CharField(verbose_name="Author", max_length=250)
     image = models.ImageField(verbose_name="Image", null=True, blank=True, upload_to="releases/")
     document = models.FileField(verbose_name="Document", null=True, blank=True)
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager(blank=True, related_name='release_tags')
     created_at = models.DateField(default=timezone.now)
 
     class Meta:
@@ -54,7 +57,7 @@ class News(models.Model):
     posted_by = models.CharField(verbose_name="Posted By", max_length=250)
     image = models.ImageField(verbose_name="Image", upload_to="news/")
     url = models.URLField()
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager(blank=True, related_name='news_tags')
     created_at = models.DateField(default=timezone.now)
 
     class Meta:

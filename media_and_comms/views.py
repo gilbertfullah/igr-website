@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from news_and_media.models import Release, News
 from django.core.paginator import Paginator
-from news_and_media.forms import CommentCreateForm, ReplyCreateForm
+from .forms import CommentCreateForm, ReplyCreateForm
+from taggit.models import Tag
+from .models import Comment
 
 def releases(request):
     releases = Release.objects.all().order_by('-published_date')
@@ -33,76 +35,61 @@ def releases(request):
 
 def release_detail(request, release_id):
     release = get_object_or_404(Release, id=release_id)
-    commentform = CommentCreateForm()
-    replyform = ReplyCreateForm()
+    tags = release.tags.all()
+    
+    # Retrieve all comments for the post
+    comments = Comment.objects.filter(parent_post=release)
+    
+    # Retrieve all replies for each comment
+    for comment in comments:
+        comment.replies = Reply.objects.filter(parent_comment=comment)
     
     context = {
         'release': release,
+        'tags': tags,
+        'comments': comments,
     }
     
-    return render(request, 'release_detail.html', context)
+    return render(request, 'release-details.html', context)
 
-def comment_sent(request, pk):
-    post = get_object_or_404(Post, id=pk)
-    replyform = ReplyCreateForm()
-    
+def add_comment(request, release_id):
+    release = get_object_or_404(Release, id=release_id)
+
     if request.method == 'POST':
-        form = CommentCreateForm(request.POST)
-        if form.is_valid:
+        commentform = CommentForm(request.POST)
+        if form.is_valid():
             comment = form.save(commit=False)
-            comment.author = request.user
-            comment.parent_post = post            
+            comment.parent_post = release
             comment.save()
-            
-    context = {
-        'post' : post,
-        'comment': comment,
-        'replyform': replyform
-    }
+    else:
+        commentform = CommentForm()
 
-    return render(request, 'snippets/add_comment.html', context)
+    return render(request, 'release-details.html', {'commentform': commentform, 'release': release})
 
-def reply_sent(request, pk):
-    comment = get_object_or_404(Comment, id=pk)
-    replyform = ReplyCreateForm()
-    
+def add_reply(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+
     if request.method == 'POST':
-        form = ReplyCreateForm(request.POST)
-        if form.is_valid:
+        replyform = ReplyForm(request.POST)
+        if form.is_valid():
             reply = form.save(commit=False)
-            reply.author = request.user
-            reply.parent_comment = comment            
+            reply.parent_comment = comment
             reply.save()
-            
+    else:
+        replyform = ReplyForm()
+
+    return render(request, 'release-details.html', {'replyform': replyform, 'comment': comment})
+
+def releases_by_tag(request, tag_slug):
+    tag = get_object_or_404(Tag, slug=tag_slug)
+    releases = Release.objects.filter(tags=tag)
+
     context = {
-        'reply' : reply,
-        'comment': comment,
-        'replyform': replyform
+        'tag': tag,
+        'releases': releases,
     }
 
-    return render(request, 'snippets/add_reply.html', context)
-
-def comment_delete_view(request, pk):
-    post = get_object_or_404(Comment, id=pk, author=request.user)
-    
-    if request.method == "POST":
-        post.delete()
-        messages.success(request, 'Comment deleted')
-        return redirect('post', post.parent_post.id )
-        
-    return render(request, 'a_posts/comment_delete.html', {'comment' : post})
-
-def reply_delete_view(request, pk):
-    reply = get_object_or_404(Reply, id=pk, author=request.user)
-    
-    if request.method == "POST":
-        reply.delete()
-        messages.success(request, 'Reply deleted')
-        return redirect('post', reply.parent_comment.parent_post.id )
-        
-    return render(request, 'a_posts/reply_delete.html', {'reply' : reply})
-
-
+    return render(request, 'releases_by_tag.html', context)
 
 def news(request):
     news = News.objects.all().order_by('-published_date')

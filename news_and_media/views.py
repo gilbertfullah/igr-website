@@ -28,9 +28,7 @@ def releases(request):
     releases = Release.objects.all().order_by('-published_date')
     return render(request, 'releases.html', {'releases': releases})
 
-def release_detail(request, release_id):
-    release = get_object_or_404(Release, id=release_id)
-    return render(request, 'release_detail.html', {'release': release})
+
 
 def comments(request):
     comments = Comment.objects.all().order_by('-published_date')

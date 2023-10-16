@@ -335,7 +335,7 @@
                             <span class="donation-time mb-3 d-block">{{ release.published_date }}</span>
                             <p class="card-text">{{ release.content|truncatechars:150|safe}}</p>
                         </div>
-                        <p><a href="#" class="link-underline px-2">Read More</a></p>
+                        <p><a href="{% url 'release_detail' release.id %}" class="link-underline px-2">Read More</a></p>
                         </div>
                     </div>
                 {% endfor %}
