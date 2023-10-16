@@ -1,0 +1,437 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    .team-member {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .team-member-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .team-member-name {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    
+    .team-member-title {
+        margin-top: 5px;
+        color: #888;
+    }
+
+    .google-map {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 56.25%; /* Aspect ratio for 16:9 (change as needed) */
+    }
+
+    .google-map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    
+</style>
+
+<div class="slider-area" style="background-color: #004F98; margin-top: -15px">
+    <div class="single-slider section-overly d-flex align-items-center" style="height:200px">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2 style="color: white; text-align: left; font-size: 34px; font-weight: bold">About Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-tabs container-fluid" id="myTabs" role="tablist" style="background-color: #e9ecef;">
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef; padding-left: 58px;">
+      <a class="nav-link active" style="background-color: #e9ecef;" id="tab1" data-bs-toggle="tab" href="#content1" role="tab" aria-controls="content1" aria-selected="true">About Us</a>
+    </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+      <a class="nav-link" style="background-color: #e9ecef;" id="tab2" data-bs-toggle="tab" href="#content2" role="tab" aria-controls="content2" aria-selected="false">Our History</a>
+    </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+        <a class="nav-link" style="background-color: #e9ecef;" id="tab4" data-bs-toggle="tab" href="#content4" role="tab" aria-controls="content4" aria-selected="false">Our Team</a>
+      </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+        <a class="nav-link" style="background-color: #e9ecef;" id="tab5" data-bs-toggle="tab" href="#content5" role="tab" aria-controls="content4" aria-selected="false">Contact Us</a>
+      </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+      <a class="nav-link" style="background-color: #e9ecef;" id="tab6" data-bs-toggle="tab" href="#content6" role="tab" aria-controls="content5" aria-selected="false">FAQs</a>
+    </li>
+  </ul>
+  
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="content1" role="tabpanel" aria-labelledby="tab1">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-8" style="line-height: 40px;">
+                    <p>IGR is an independent think-tank organization and research team that works with civil society organizations, international partners and government to reform public policy in Sierra Leone. Our approach to research ensures reliable credible data that is backed by rigorous research methods informed by international best practices.</p>
+                    <p>IGR’s independence enables us to take an unbiased, flexible and long-term view of issues shaping national development. Our approach is both catalytic and transformative that drives forward institutional reforms.</p>
+                    <p>Beyond  conducting research, IGR staff members conduct trainings, provide coaching and mentoring of partners and stakeholders involved in the public policy process. IGR’s team consists of a diverse set of backgrounds consisting of social scientists, lawyers, finance backgrounds and communication specialists. We maintain a readily available team of researchers and research assistants from all ethnic groups and regions of Sierra Leone.</p>
+
+                    <div class="hero__caption">
+                        <h1 style="font-weight: 900 !important; font-size: 34px !important">Vision</h1>
+                        <p>To become a respected policy voice in the African Sub-Region supporting public and private institutions to respond to the challenges of economic development, poverty and state effectiveness.</p>
+                    </div>
+
+                    <div class="hero__caption">
+                        <h1 style="font-weight: 900 !important; font-size: 34px !important">Mission</h1>
+                        <p>To bridge the gap between knowledge and policy</p>
+                    </div>
+
+                    <div class="hero__caption">
+                        <h1 style="font-weight: 900 !important; font-size: 34px !important">Core Values</h1>
+                        <ul>
+                            <li>Professionalism and Integrity</li>
+                            <li>Quality</li>
+                            <li>Neutrality and Independence</li>
+                            <li>Accountability and Openness</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="content2" role="tabpanel" aria-labelledby="tab2">
+      <!-- Content for Tab 2 -->
+    </div>
+    <div class="tab-pane fade" id="content3" role="tabpanel" aria-labelledby="tab3">
+      <!-- Content for Tab 3 -->
+    </div>
+    <div class="tab-pane fade" id="content4" role="tabpanel" aria-labelledby="tab4">
+      <section class="our-team-section">
+        <div class="container py-5">
+          <div class="row">
+          {% for member in members %}
+            <div class="col-md-3">
+              <div class="team-member">
+                <img src="{{ member.image.url }}" alt="{{ member.name }}" class="team-member-image">
+                <h3 class="team-member-name">{{ member.name }}</h3>
+                <p class="team-member-title">{{ member.position }}</p>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </section>  
+    </div>
+    
+    <div class="tab-pane fade" id="content5" role="tabpanel" aria-labelledby="tab5">
+        <section class="contact-section py-5">
+            <div class="container">
+              <p class="pb-4" style="font-size: 18px; margin-bottom: 30px;">Get in touch with any of our offices directly through the contact details below.</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="pb-3">Contact Information</h3>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg> Address: 49H Spur Road, Freetown, Sierra Leone</p>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-telephone" viewBox="0 0 16 16">
+                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                  </svg> Email: info@igrsl.org</p>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                  </svg> Phone: (+232) 30 992 907</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Contact Form</h3>
+                  <form action="submit-form.php" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                  </form>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-md-12 col-lg-12">
+                  <h3>Office Location</h3>
+                  <div class="google-map">
+                    <!-- Embed Google Map iframe or map code -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.3918751412957!2d-13.272294826564233!3d8.46121859762138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf04c49ce3715543%3A0x17a3a773b3a09e97!2s49%20Spur%20Rd%2C%20Freetown!5e0!3m2!1sen!2ssl!4v1688660773195!5m2!1sen!2ssl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                </div>
+              </div>
+        </div>
+          </section>
+          
+    </div>
+    <div class="tab-pane fade" id="content6" role="tabpanel" aria-labelledby="tab5">
+        <section class="faq-section">
+            <div class="container py-5 pb-5">
+              <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="faqHeading1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                        <b>Why does IGR conduct Social Science research in Sierra Leone, and what is its utility?</b>
+                    </button>
+                  </h3>
+                  <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      <p>
+                        IGR’s core mission is to bridge the gap between knowledge and policy, and to do this
+                        requires credible data that can be shared with policymakers, donors, partners, and
+                        citizens. Data integrity is of the utmost importance to IGR, its staff, and reputation.
+                        Trusted data collection and generation is at the core of IGR’s work. Generating trusted
+                        data by all partners, even if they disagree with the intent and use of the data requires all
+                        IGR staff to be guided by several core institutional values and set of ethics. These
+                        values are:
+                      </p>
+                      <ul>
+                        <li>Professionalism and Integrity</li>
+                        <li>Quality</li>
+                        <li>Neutrality and Independence</li>
+                        <li>Accountability and Openness</li>
+                      </ul>
+                      <p>IGR does not, and has never, sat back and just cooked up data to suit any particular agenda.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                      <h3 class="accordion-header" id="faqHeading3">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="true" aria-controls="faqCollapse1">
+                            <b>What are some of the building blocks to conducting social science research in Sierra Leone?</b>
+                        </button>
+                      </h3>
+                      <div id="faqCollapse3" class="accordion-collapse collapse show" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                          <p><b>Patience and Perseverance</b></p>
+                          <p>
+                            Conducting research in Sierra Leone is a time-consuming and often costly process. The amount of time needed to 
+                            conduct quality typically takes more time than what an individual or organization generally wants to allocate, 
+                            but because of poor road networks, poor cell phone networks, and the rural nature of most Sierra Leoneans, 
+                            conducting research can take time. In addition, getting access to key informants can be challenging if there is 
+                            not a personal connection with the individual. Patience and perseverance are the two most important traits that a 
+                            research can have in Sierra Leone. 
+                          </p>
+                          <p><b>Good Research Design</b></p>
+                          <p>
+                            The research design for any body of research or applied research is a comprehensive plan for data collection in an 
+                            empirical research project. Good research designs often occur with direct input from stakeholders and from partners. 
+                            Input from local communities and organizations working in specific areas is always taken into consideration when 
+                            designing programs and projects at IGR. 
+                          </p>
+                          <p><b>Case Study or Deep Dive</b></p>
+                          <p>
+                            A case study or deep dive typically focuses on one unit, possibly two and up to as many as three. The case study or 
+                            deep dive allows IGR to drill down and really explore what are some of the central issues or processes that are 
+                            driving a particular issue or institution in a particular way. This type of research is grounded within the confines 
+                            of a particular unit or units that can provide deep understanding and analysis. Often the limitations of a case study 
+                            or deep dive is the lack of generalizability of the findings to other areas or institutional settings. 
+                          </p>
+                          <p><b>Large-N and Small-N research</b></p>
+                          <p>
+                            The N simply refers to the number of units that are being looked at and assessed. Large-N research is typically 4 or
+                            more cases and can be limitless, in theory. Small-N studies are typically 2 to 3 units. So, for example, IGR could 
+                            conduct an assessment on universal health insurance schemes in Sierra Leone, Ghana and Senegal. This would be 
+                            considered a small-N study, whereas a study on internet usage in all 48 sub-Saharan African states would be 
+                            considered large-N. The benefits of a large-N study is that by studying an issue within a bunch of units or cases 
+                            is that trends can be identified to identify similarities and also differences between units or cases. Typically, 
+                            large-N studies are quantitative and expressed with statistics. Small-N research however can look at similar issues 
+                            between units or cases that can be either quantitative or qualitative in form, but also not be able to highlight 
+                            some of the trends found in large-N studies. 
+                          </p>
+                          <p><b>Sampling</b></p>
+                          <p>
+                            Samples can vary depending upon the nature of the research and geographic location where the research will be 
+                            conducted. For national level surveys approximately 1,200 individuals are needed to provide a representative 
+                            cross-section of respondents that are 18 years of age and above. IGR only speaks to individuals 18 and above. 
+                            For research in Freetown for example, with an approximate population of 1.5 million residents, IGR can sample as 
+                            few as 400 to as many as 800 to provide a representative cross-section of society with a reliable margin of error.
+                          </p>
+                          <p><b>Weighting</b></p>
+                          <p>
+                            Survey data often times needs to be adjusted. Weighting data is a statistical technique used to balance out survey 
+                            data to improve accuracy of findings. A few of the reasons why data can be weighted is the unequal probability of 
+                            selection during the survey sampling stage. For example, surveys often occur in unequal environments like a city 
+                            and a rural area. The survey data can be weighted in favour of those in a rural area to compensate for fewer 
+                            respondents due to less population and also the remote nature of the area. The second reason for weighting of data 
+                            is due to the issue of nonresponse. Often times people do not want to take part in a particular survey for a number 
+                            of reasons. One could be that they are not familiar with the issue(s), another can be that they find the issue too 
+                            sensitive and don’t want to talk about it, or people might simply not want to take part in any survey work because 
+                            they don’t know the individuals asking the question(s). Data are often weighted to address some of these concerns.
+                          </p>
+                          <p><b>Margin of Error</b></p>
+                          <p>
+                            The MOE often expressed as a percentage is a number that tells the audience the level of sampling error in the 
+                            results of a survey. The larger the MOE the greater the likelihood that the survey results are seen as less reliable.
+                             A very strong MOE is typically 3%, and the highest MOE that IGR will accept in any research is 5%, again due to the 
+                             unreliability or questioning of the findings. Decisions around an acceptable MOE are often related to financial 
+                             concerns. To decrease the MOE requires IGR to increase its sample size and speak to more respondents, which inevitably
+                             is more time consuming and costly. However, depending upon the nature of the research and a client’s interest, a 5% MOE
+                             can be more than adequate. There are always trade-offs in conducting surveys.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                          <h3 class="accordion-header" id="faqHeading4">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="true" aria-controls="faqCollapse1">
+                                <b>What are some of the tools and approaches that IGR uses to conduct research in Sierra Leone?</b>
+                            </button>
+                          </h3>
+                          <div id="faqCollapse4" class="accordion-collapse collapse show" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                              <p><b>Electronic data capture</b></p>
+                              <p>
+                                All of IGR’s work is conducted with up-to-date smartphones and. tablets. In addition, software that captures 
+                                geo-location and time-stamp at the time of interview is utilized to aid in quality assurance. Data collectors 
+                                are provided rigorous training in the use of software, data collection, and research methods to ensure that data 
+                                collection is accurate.
+                              </p>
+                              <p><b>Well-trained and seasoned data collectors</b></p>
+                              <p>
+                                IGR has been working with a body of data collectors for several years. These are first-class degree holders that 
+                                have worked on several IGR projects and are regularly trained and re-trained in how to properly conduct research 
+                                in Sierra Leone. IGR always tries to ensure that gender parity is always observed on every assignment with a 
+                                mixture of women and men representing every region of the country. On some assignments IGR encourages those from 
+                                the south to go conduct research in the north, and those from the west to travel to the east. This is to help 
+                                ensure a more comprehensive view of all Sierra Leoneans and to challenge them to see the entire nation, not just 
+                                rely upon their own personal views and to promote inclusion and national pride. IGR strives to promote inclusion 
+                                and unity, and its field staff are front-line representatives of IGR and the values and reform that it seeks to 
+                                achieve.
+                              </p>
+                              <p><b>Desk Review</b></p>
+                              <p>
+                                A desk review is another way of speaking about a literature review, which is the relevant literature 
+                                (official and unofficial) on a given topic. Academics, non-governmental organizations (NGOs), donors, 
+                                multilateral organizations, and policy-based think tanks like IGR often produce data-driven analyses and reports
+                                on particular issues. These pieces of literature become useful in looking at gaps or limitations of particular 
+                                approaches or ways of thinking about issues. A desk review or understanding the literature is often the first 
+                                step in conducting research and proposing policy reforms.
+                              </p>
+                              <p><b>Interviews </b></p>
+                              <p>
+                                IGR regularly conducts key-informant interviews (KIIs) with key individuals often in positions of authority that 
+                                can provide information on critical issues or institutional processes that IGR seeks to gather information on. 
+                                Interviews can be either in a formal or informal setting and can be conducted in as little as 5 minutes and can 
+                                last as long as 1 hour depending upon the nature of the issue as well as the respondent’s time and schedule.
+                              </p>
+                              <p><b>Focus Group Discussions</b></p>
+                              <p>
+                                FGDs are typically informal discussions that involve 6 to 8 respondents 
+                                (you don’t want too many respondents in one setting) that allow a researcher to gather a large amount of 
+                                information from respondents of similar backgrounds or experiences together to discuss a specific topic of 
+                                interest. It is a form of qualitative research where questions are asked about their perceptions attitudes, 
+                                beliefs, opinion or ideas. In focus group discussion participants are free to talk with other group members; 
+                                unlike other research methods it encourages discussions with other participants. The FGD is led by a moderator 
+                                (interviewer) in a loosely structured discussion of various topics of interest. 
+                              </p>
+                              <p><b>Survey (Questionnaire)</b></p>
+                              <p>
+                                Surveys are a useful tool to gauge the views of citizens on issues. At IGR all surveys are randomly conducted 
+                                with electronic capture and geo-location and time-stamp tracking so that data accuracy, credibility and 
+                                reliability can be ensured. Random survey sampling is conducted to ensure that each and every Sierra Leonean has 
+                                an equal and known chance of being selected. There are other forms of surveys that can be conducted.
+                              </p>
+                              <p><b>Telephone-based polling</b></p>
+                              <p>
+                                Telephonic data polling has been conducted for surveys at IGR. IGR maintains a database of registered phone users
+                                 in Sierra Leone by the two main telecoms companies (Africell and Orange). Telephone-based survey research is 
+                                 challenging in Sierra Leone where access to a cell phone tower, reliable electricity to charge one’s cell phone 
+                                 on a regular basis, not always predictable household work patterns, and an irregularly-updated national registry 
+                                 of all cell phone users. Telephonic polling has a lot of potential in Sierra Leone to get quick snapshots of 
+                                 citizen’s views, but it will continue to evolve as infrastructure improves and households gain greater access to 
+                                 electricity and affordable cell phone service.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id="faqHeading5">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="true" aria-controls="faqCollapse1">
+                                    <b>Can you explain some of the types of data analysis that IGR does?</b>
+                                </button>
+                              </h3>
+                              <div id="faqCollapse5" class="accordion-collapse collapse show" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                  <p>One can think of data analysis as a set of tools that helps one interpret and tell a story. Data analysis is either quantitative or qualitative in nature. Mixed methods analysis utilizes both qualitative and quantitative data to tell a story.</p>
+                                  <p><b>Qualitative Analysis</b></p>
+                                  <p>
+                                    Qualitative data is data that cannot be objectively measured or counted. It is data that expresses the interpretive
+                                    qualities of an item or process. Qualitative data can come in a variety of formats, including words, audio and video
+                                    clips. Analysing qualitative data introduces some element of subjectivity into the process. Analysing qualitative 
+                                    data can come in the form of interpreting textual data and the precise meaning of words, body language, an individual’s 
+                                    appearance, and more importantly the impact of policy individuals and local communities. Interpreting qualitative data 
+                                    requires time, skill, and attention to detail. There are also very good qualitative software programs such as NVIVO and 
+                                    MAXDA that can provide powerful analysis and graphics in qualitative analysis. Furthermore, qualitative data and analysis
+                                    can also assist in coding data that can then be quantified into numbers.
+                                  </p>
+                                  <p><b>Quantitative Analysis</b></p>
+                                  <p>
+                                    Quantitative data is a set of information that can be numerically recognized and analysed and is often expressed
+                                    in the form of a numerical value that represents a given reality. Quantitative analysis uses mathematics and statistical 
+                                    modelling to understand behaviour and represents a given reality within a specific time frame. It is primarily conducted 
+                                    using specialised software packages like SPSS, STATA and Excel, and is often described by researchers as objective data 
+                                    depicts some level of measurement. Measurement can come in the form of whole numbers and percentages and is often used to 
+                                    highlight trends over a given period of time. Quantitative analysis can help to measure performance precisely and objectively 
+                                    over time, citizen’s views on public policies and government performance, predicting real-world events such as the change in 
+                                    temperature or a country’s gross domestic product (GDP), and also the change in value of a good such as national currency. 
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                {% for faq in faqs %}
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="faqHeading2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                        <b>{{ faq.question }}</b>
+                    </button>
+                  </h3>
+                  <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      <p>
+                        {{ faq.answer }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+                
+                <!-- Add more accordion items with the same structure -->
+              </div>
+            </div>
+          </section>
+          
+    </div>
+  </div>
+  
+
+{% endblock content %}
+
+
