@@ -1,0 +1,358 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    .team-member {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .team-member-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .team-member-name {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    
+    .team-member-title {
+        margin-top: 5px;
+        color: #888;
+    }
+
+    .google-map {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 56.25%; /* Aspect ratio for 16:9 (change as needed) */
+    }
+
+    .google-map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    
+</style>
+
+<div class="slider-area" style="background-color: #004F98; margin-top: -15px">
+    <div class="single-slider section-overly d-flex align-items-center" style="height:200px">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2 style="color: white; text-align: left; font-size: 34px; font-weight: bold">Economic Advocacy</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-tabs container-fluid" id="myTabs" role="tablist" style="background-color: #e9ecef;">
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef; padding-left: 58px;">
+      <a class="nav-link active" style="background-color: #e9ecef;" id="tab1" data-bs-toggle="tab" href="#content1" role="tab" aria-controls="content1" aria-selected="true">Economics Advocacy</a>
+    </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+      <a class="nav-link" style="background-color: #e9ecef;" id="tab2" data-bs-toggle="tab" href="#content2" role="tab" aria-controls="content2" aria-selected="false">Governance</a>
+    </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+      <a class="nav-link" style="background-color: #e9ecef;" id="tab3" data-bs-toggle="tab" href="#content3" role="tab" aria-controls="content3" aria-selected="false">Social Accountability</a>
+    </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+        <a class="nav-link" style="background-color: #e9ecef;" id="tab4" data-bs-toggle="tab" href="#content4" role="tab" aria-controls="content4" aria-selected="false">Parliament Monitoring</a>
+      </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+        <a class="nav-link" style="background-color: #e9ecef;" id="tab5" data-bs-toggle="tab" href="#content5" role="tab" aria-controls="content4" aria-selected="false">Health Governance</a>
+      </li>
+  </ul>
+  
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="content1" role="tabpanel" aria-labelledby="tab1">
+      <div class="container">
+          <div class="row">
+              {% for economic in economics %}
+              <div class="col-lg-8">
+                <h2 class="mt-4">Overview</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ economic.overview }}
+                  </p>
+
+                  <h2 class="mt-4">Importance of Economics Advocacy</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ economic.importance }}
+                  </p>
+
+                  <h3 class="mt-4">Initiatives by IGR</h3>
+                  <ul>
+                    <li>
+                      Policy Research and Analysis: <br>
+                      The IGR conducts in-depth research and analysis to identify key economic challenges and opportunities in Sierra Leone. Through rigorous research, they generate evidence-based policy recommendations to address economic issues, enhance public financial management, and promote fiscal discipline.
+                    </li>
+                    <li>
+                      Engaging Stakeholders: <br>
+                      The IGR actively engages with various stakeholders, including policymakers, civil society organizations, private sector entities, and the general public. They organize policy dialogues, roundtable discussions, and workshops to facilitate informed discussions, build consensus, and create partnerships for effective economic advocacy.
+                    </li>
+                    <li>
+                      Capacity Building: <br>
+                      Recognizing the importance of human capital development, the IGR conducts capacity-building programs and workshops for government officials, civil society organizations, and the private sector. These programs aim to enhance knowledge and skills in economic policymaking, public finance management, and governance practices, ultimately strengthening the capacity of stakeholders to drive economic reform.
+                    </li>
+                    <li>
+                      Monitoring and Evaluation: <br>
+                      The IGR plays a crucial role in monitoring and evaluating the implementation of economic policies and programs in Sierra Leone. Through independent assessments and analysis, they provide feedback on the effectiveness and impact of economic initiatives, identifying areas for improvement and informing evidence-based policy decisions.
+                    </li>
+                    <li>
+                      Advocacy Campaigns: <br>
+                      The IGR utilizes advocacy campaigns to raise awareness about key economic issues, promote inclusive growth, and advocate for reforms. They engage with the media, civil society, and the public to disseminate information, mobilize support, and generate public dialogue on critical economic matters.  
+                    </li>
+                    <li>
+                      Policy Influence and Dialogue: <br>
+                      The IGR actively engages with policymakers and government agencies to influence economic policy formulation and implementation. They provide technical expertise, policy recommendations, and engage in constructive dialogues to ensure that economic decisions align with the best interests of Sierra Leone and its citizens.
+                    </li>
+                  </ul>
+
+                  <p class="mt-4">
+                    {{ economic.conclusion }}
+                  </p>
+              </div>
+              {% endfor %}
+              <div class="col-lg-4">
+                <!-- sidebar.html -->
+                <div class="sidebar mt-5">
+                  <h3 style="text-align:center; padding-bottom: 20px;">Latest Posts</h3>
+                  <ul>
+                    {% for post in press_releases %}
+                      <li style="list-style-type: none;"><a href="{{ post.get_absolute_url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></li><br>
+                      {% empty %}
+                      <li>No press releases found.</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade show" id="content2" role="tabpane1" aria-labelledby="tab2">
+      <div class="container">
+          <div class="row">
+              {% for gov in governance %}
+              <div class="col-lg-8">
+                <h2 class="mt-4">Overview</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ gov.overview }}
+                  </p>
+
+                  <h2 class="mt-4">Importance of Economics Advocacy</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ gov.importance }}
+                  </p>
+
+                  <h3 class="mt-4">Initiatives by IGR</h3>
+                  <ul>
+                    <li>
+                      Policy Advocacy: <br>
+                      The IGR engages in policy advocacy to promote good governance principles, transparency, and accountability. Through evidence-based research, they identify gaps and challenges in governance systems, propose policy reforms, and advocate for their implementation. The IGR works closely with government institutions, civil society organizations, and other stakeholders to ensure policy changes that foster good governance practices.
+                    </li>
+                    <li>
+                      Public Financial Management: <br>
+                      The IGR focuses on improving public financial management systems to enhance transparency, accountability, and efficient resource allocation. They conduct assessments, develop recommendations, and advocate for reforms in budgeting, expenditure tracking, and financial reporting. By strengthening financial management practices, the IGR contributes to the efficient utilization of public resources and reduces the risk of corruption.
+                    </li>
+                    <li>
+                      Anti-Corruption Measures: <br>
+                      Addressing corruption is a key priority for the IGR. They work towards enhancing anti-corruption measures by advocating for robust legal frameworks, strengthening anti-corruption institutions, and promoting transparency in public procurement and financial transactions. The IGR actively engages with government agencies and civil society organizations to combat corruption and promote ethical practices.
+                    </li>
+                    <li>
+                      Citizen Engagement and Participation: <br>
+                      The IGR recognizes the importance of citizen engagement in governance processes. They promote citizen participation through awareness campaigns, civic education, and the facilitation of platforms for dialogue between citizens and decision-makers. The IGR empowers citizens to actively engage in governance, voice their concerns, and hold public officials accountable.
+                    </li>
+                    <li>
+                      Institutional Capacity Building: <br>
+                      Building the capacity of public institutions is a crucial component of governance reform. The IGR provides training and technical assistance to government agencies, civil society organizations, and other stakeholders to enhance their capacity in governance practices, policy formulation, and service delivery. By strengthening institutions, the IGR contributes to effective governance and improved public service delivery.
+                    </li>
+                    <li>
+                      Data and Research: <br>
+                      The IGR conducts research and data analysis to generate evidence on governance issues, public service delivery, and socio-economic development. They use this data to inform policy decisions, monitor progress, and advocate for evidence-based governance reforms. The IGR's research findings contribute to informed policy discussions and foster evidence-based decision-making.
+                    </li>
+                  </ul>
+
+                  <p class="mt-4">
+                    {{ gov.conclusion }}
+                  </p>
+              </div>
+              {% endfor %}
+              <div class="col-lg-4">
+                <!-- sidebar.html -->
+                <div class="sidebar mt-5">
+                  <h3 style="text-align:center; padding-bottom: 20px;">Latest Posts</h3>
+                  <ul>
+                    {% for post in press_releases %}
+                      <li style="list-style-type: none;"><a href="{{ post.get_absolute_url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></li><br>
+                      {% empty %}
+                      <li>No press releases found.</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade show" id="content3" role="tabpane1" aria-labelledby="tab3">
+      <div class="container">
+          <div class="row">
+              {% for soc in social %}
+              <div class="col-lg-8">
+                <h2 class="mt-4">Overview</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ soc.overview }}
+                  </p>
+
+                  <h2 class="mt-4">Importance of Economics Advocacy</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ soc.importance }}
+                  </p>
+
+                  <h3 class="mt-4">Initiatives by IGR</h3>
+                  <ul>
+                    <li>
+                      Citizen Awareness and Mobilization: <br>
+                      The IGR conducts awareness campaigns and civic education programs to educate citizens about their rights, responsibilities, and the importance of social accountability. They empower communities with the knowledge and tools to actively engage in decision-making processes, monitor service delivery, and demand accountability from public officials.
+                    </li>
+                    <li>
+                      Capacity Building: <br>
+                      Recognizing the need for capacity building, the IGR provides training and technical assistance to civil society organizations, community-based groups, and government institutions. These capacity-building programs equip individuals and organizations with the necessary skills to engage in social accountability initiatives effectively.
+                    </li>
+                    <li>
+                      Strengthening Civil Society Organizations (CSOs): <br>
+                      The IGR works closely with CSOs, providing support to strengthen their capacity in promoting social accountability. They assist CSOs in advocacy efforts, project management, and fostering collaboration among various stakeholders. By empowering CSOs, the IGR facilitates their role as key drivers of social accountability in Sierra Leone.
+                    </li>
+                    <li>
+                      Monitoring and Evaluation: <br>
+                      The IGR engages in independent monitoring and evaluation of public services and projects to ensure transparency and accountability. Through rigorous assessments and data analysis, they identify gaps and shortcomings, highlight areas for improvement, and advocate for necessary reforms. The findings contribute to evidence-based policy recommendations and informed decision-making.
+                    </li>
+                    <li>
+                      Promoting Community Participation: <br>
+                      The IGR encourages community participation in decision-making processes and project implementation. They facilitate platforms for dialogue and engagement between communities, government officials, and other stakeholders. By fostering community participation, the IGR ensures that projects and services align with the needs and priorities of the communities they serve.
+                    </li>
+                    <li>
+                      Policy Advocacy: <br>
+                      The IGR advocates for policy changes that promote social accountability and transparency. They engage with policymakers, government agencies, and other stakeholders to influence legislation, regulations, and institutional reforms. The IGR utilizes evidence-based research and data to make a compelling case for social accountability practices.
+                    </li>
+                    <li>
+                      Collaborative Partnerships: <br>
+                      The IGR collaborates with local and international organizations, government agencies, and development partners to strengthen social accountability initiatives. These partnerships foster knowledge-sharing, resource mobilization, and coordination efforts, leading to more effective social accountability practices in Sierra Leone.
+                    </li>
+                  </ul>
+
+                  <p class="mt-4">
+                    {{ soc.conclusion }}
+                  </p>
+              </div>
+              {% endfor %}
+              <div class="col-lg-4">
+                <!-- sidebar.html -->
+                <div class="sidebar mt-5">
+                  <h3 style="text-align:center; padding-bottom: 20px;">Latest Posts</h3>
+                  <ul>
+                    {% for post in press_releases %}
+                      <li style="list-style-type: none;"><a href="{{ post.get_absolute_url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></li><br>
+                      {% empty %}
+                      <li>No press releases found.</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade show" id="content4" role="tabpane1" aria-labelledby="tab4">
+      <div class="container">
+          <div class="row">
+              {% for par in parliamentary %}
+              <div class="col-lg-8">
+                <h2 class="mt-4">Overview</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ par.overview }}
+                  </p>
+
+                  <h2 class="mt-4">Importance of Economics Advocacy</h2>
+                  <p class="mt-4" style="line-height: 30px;">
+                      {{ par.importance }}
+                  </p>
+
+                  <h3 class="mt-4">Initiatives by IGR</h3>
+                  <ul>
+                    <li>
+                      Tracking Legislative Performance: <br>
+                      The IGR monitors the performance of parliamentarians, including their attendance, participation in debates, voting records, and engagement with constituents. Through comprehensive data analysis and reporting, the IGR provides citizens with valuable insights into the effectiveness of their elected representatives, encouraging transparency and fostering citizen accountability.
+                    </li>
+                    <li>
+                      Legislative Research and Analysis: <br>
+                      The IGR conducts research and analysis on legislative processes, bills, and policy proposals. They provide unbiased assessments, highlighting the potential impact and implications of proposed legislation. The IGR's research outputs inform public discourse, empower citizens to engage in informed debates, and contribute to evidence-based policy recommendations.
+                    </li>
+                    <li>
+                      Citizen Education and Awareness: <br>
+                      Recognizing the importance of an informed citizenry, the IGR conducts citizen education programs and awareness campaigns to enhance understanding of the legislative processes and the role of parliament. These initiatives aim to empower citizens to actively engage with their representatives, participate in public hearings, and provide input on policy matters.
+                    </li>
+                    <li>
+                      Strengthening Oversight Mechanisms: <br>
+                      The IGR advocates for the establishment and strengthening of oversight mechanisms within parliament. They promote transparency, accountability, and checks and balances by encouraging the establishment of committees, enhancing the role of the Public Accounts Committee, and facilitating mechanisms for citizen engagement in oversight processes.
+                    </li>
+                    <li>
+                      Engaging Civil Society Organizations (CSOs): <br>
+                      The IGR collaborates with civil society organizations to foster coordinated efforts in monitoring parliament and promoting citizen engagement. By building the capacity of CSOs, facilitating knowledge-sharing, and encouraging collaboration, the IGR strengthens the collective voice of civil society in advocating for transparent and accountable legislative processes.
+                    </li>
+                    <li>
+                      Policy Advocacy: <br>
+                      The IGR engages with parliamentarians, government officials, and stakeholders to advocate for reforms in legislative processes and procedures. Through evidence-based research, policy briefs, and direct engagement, the IGR highlights areas for improvement, proposes legislative reforms, and advocates for transparent and inclusive policymaking.
+                    </li>
+                    <li>
+                      Citizen Feedback Mechanisms: <br>
+                      The IGR promotes the establishment of citizen feedback mechanisms within parliament, enabling citizens to provide feedback, raise concerns, and offer suggestions on legislative matters. This feedback loop ensures that the voices of citizens are heard and considered during the decision-making process.
+                    </li>
+                  </ul>
+
+                  <p class="mt-4">
+                    {{ par.conclusion }}
+                  </p>
+              </div>
+              {% endfor %}
+              <div class="col-lg-4">
+                <!-- sidebar.html -->
+                <div class="sidebar mt-5">
+                  <h3 style="text-align:center; padding-bottom: 20px;">Latest Posts</h3>
+                  <ul>
+                    {% for post in press_releases %}
+                      <li style="list-style-type: none;"><a href="{{ post.get_absolute_url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></li><br>
+                      {% empty %}
+                      <li>No press releases found.</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    
+    <div class="tab-pane fade" id="content5" role="tabpanel" aria-labelledby="tab5">
+          
+    </div>
+  </div>
+  
+
+{% endblock content %}
+
+

@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+  <head>
+    <title>Welcome to Institute for Governace Reform (IGR)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+k2Jz7S+rMdlA5r8Ec5p0KkoW1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.min.js" integrity="sha384-w7U6z4sBE8OBf6HGYdcJryqjI/xUKYmGBn6/5S5W0l/bO/pRzTo5L2vSf5e5Oo+Hb" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-iconic@1.1.1/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{% static "css/unpkg.com_ionicons@4.4.4_dist_css_ionicons.min" %}">
+    <link rel="stylesheet" href="{% static "css/open-iconic-bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.theme.default.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+    <link rel="stylesheet" href="{% static "css/aos.css" %}">
+    <link rel="stylesheet" href="{% static "css/ionicons.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap-datepicker.css" %}">
+    <link rel="stylesheet" href="{% static "css/jquery.timepicker.css" %}">
+    <link rel="stylesheet" href="{% static "css/flaticon.css" %}">
+    <link rel="stylesheet" href="{% static "css/icomoon.css" %}">
+    <link rel="stylesheet" href="{% static "css/fancybox.min.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script src="{% static "js/owl.carousel.min.js" %}"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('.nonloop-block-11').owlCarousel({
+          items: 3,   // Set the number of items to show in the carousel
+          loop: false, // Set loop to false to disable infinite loop
+          nav: true,   // Enable navigation buttons
+        });
+      });
+      </script>
+      
+
+    <style>
+      /* CSS for equal height cards */
+        .equal-height-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+        }
+
+        .equal-height-card .card-body {
+            flex-grow: 1;
+        }
+
+        .img-fluid.rounded-lg {
+          transition: transform 0.3s ease;
+        }
+      
+        .img-fluid.rounded-lg:hover {
+            transform: scale(1.1); /* Adjust the scale factor as needed */
+        }
+
+    </style>
+
+  </head>
+  <body>
+    
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{% url "home" %}">
+        <img src="{% static 'images/igr_logo.png' %}" alt="Logo" width="90" height="90" class="d-inline-block align-text-center">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="{% url "home" %}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{% url "about_us" %}" class="nav-link">Who Are We</a></li>
+            <li class="nav-item"><a href="{% url "focus_areas" %}" class="nav-link">Focus Areas</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Media & Comms
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url "releases" %}">Releases</a>
+                  <a class="dropdown-item" href="{% url "in_the_news" %}">In the News</a>
+                  <a class="dropdown-item" href="https://bridgingknowledgeandpolicy.podbean.com/?action=openPodcast&podcastId=pbblog14570187&podcastIdTag=kb6iv&utm_campaign=a_share_pp&utm_medium=dlink&utm_source=a_share" target="_blank">Podcasts</a>
+                  <a class="dropdown-item" href="#">Gallery</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="{% url "faqs" %}" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="{% url "contact_us" %}" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+    
+    </div>
+  </nav>
+  <!-- END nav -->
+  
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/bg.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading mb-4">Bridging Knowledge and Policy</h2>
+              <p class="fs-4 text-white mb-4" style="display: inline-block;">Using citizen-driven evidence to influence policy.</p>
+              <p class="mb-0"><a href="{% url "focus_areas" %}" class="btn btn-white px-3 py-2">Focus Areas</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+    <div class="site-section fund-raisers bg-light mt-5">
+        <div class="container">
+            <div class="row mb-3 justify-content-center">
+                <div class="col-md-8 text-center">
+                <h2 class="section-title mb-3 fw-bold fs-1">Who Are We?</h2>
+                <p class="lead fs-4">Institute for Governance Reform (IGR) is an independen national think-tank working with ordinary citizens and a variety of stakeholders to bring high quality evidence into policy making and implementation processes.</p>
+                <p class="mb-0 mt-5"><a href="{% url "about_us" %}" class="btn btn-primary px-3 py-2">Learn More</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            
+            <div class="col-md-12 block-11">
+                <div class="nonloop-block-11 owl-carousel">
+                    <div>
+                        <a href="{% static "images/Gallery/ree_original.jpg" %}" class="img-hover" data-fancybox="gallery">
+                            <img src="{% static "images/Gallery/ree.jpg" %}" alt="Image placeholder" class="img-fluid">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{% static "images/Gallery/ree1_original.jpg" %}" class="img-hover" data-fancybox="gallery">
+                            <img src="{% static "images/Gallery/ree1.jpg" %}" alt="Image placeholder" class="img-fluid">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{% static "images/Gallery/1_original.jpg" %}" class="img-hover" data-fancybox="gallery">
+                            <img src="{% static "images/Gallery/1.jpg" %}" alt="Image placeholder" class="img-fluid">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{% static "images/Gallery/2_original.jpg" %}" class="img-hover" data-fancybox="gallery">
+                            <img src="{% static "images/Gallery/2.jpg" %}" alt="Image placeholder" class="img-fluid">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{% static "images/Gallery/par2_original.jpg" %}" class="img-hover" data-fancybox="gallery">
+                            <img src="{% static "images/Gallery/par2.jpg" %}" alt="Image placeholder" class="img-fluid">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{% static "images/Gallery/000_original.jpg" %}" class="img-hover" data-fancybox="gallery">
+                            <img src="{% static "images/Gallery/000.jpg" %}" alt="Image placeholder" class="img-fluid">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- .section -->
+
+
+
+    <div class="site-section border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="media block-6">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 512 512"><path fill="currentColor" d="M288 464h-64a16 16 0 0 0 0 32h64a16 16 0 0 0 0-32Zm16-48h-96a16 16 0 0 0 0 32h96a16 16 0 0 0 0-32Zm65.42-353.31C339.35 32.58 299.07 16 256 16A159.62 159.62 0 0 0 96 176c0 46.62 17.87 90.23 49 119.64l4.36 4.09C167.37 316.57 192 339.64 192 360v24a16 16 0 0 0 16 16h24a8 8 0 0 0 8-8V274.82a8 8 0 0 0-5.13-7.47A130.73 130.73 0 0 1 208.71 253a16 16 0 1 1 18.58-26c7.4 5.24 21.65 13 28.71 13s21.31-7.78 28.73-13a16 16 0 0 1 18.56 26a130.73 130.73 0 0 1-26.16 14.32a8 8 0 0 0-5.13 7.47V392a8 8 0 0 0 8 8h24a16 16 0 0 0 16-16v-24c0-19.88 24.36-42.93 42.15-59.77l4.91-4.66C399.08 265 416 223.61 416 176a159.16 159.16 0 0 0-46.58-113.31Z"/></svg>
+              </span></div>
+              <div class="media-body">
+                <h3 class="heading fw-bold">Our Mission</h3>
+                <p>To bridge the gap between knowledge and policy.</p>
+              </div>
+            </div>     
+          </div>
+    
+          <div class="col-md-4">
+            <div class="media block-6">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 512 512"><circle cx="256" cy="256" r="64" fill="currentColor"/><path fill="currentColor" d="M490.84 238.6c-26.46-40.92-60.79-75.68-99.27-100.53C349 110.55 302 96 255.66 96c-42.52 0-84.33 12.15-124.27 36.11c-40.73 24.43-77.63 60.12-109.68 106.07a31.92 31.92 0 0 0-.64 35.54c26.41 41.33 60.4 76.14 98.28 100.65C162 402 207.9 416 255.66 416c46.71 0 93.81-14.43 136.2-41.72c38.46-24.77 72.72-59.66 99.08-100.92a32.2 32.2 0 0 0-.1-34.76ZM256 352a96 96 0 1 1 96-96a96.11 96.11 0 0 1-96 96Z"/></svg>
+              </div>
+              <div class="media-body">
+                <h3 class="heading fw-bold">Our Vision</h3>
+                <p>To become a respected policy voice in the African Sub-Region supporting public and private institutions to respond to the challenges of economic development and state effectiveness.</p>
+              </div>
+            </div>  
+          </div>
+    
+          <div class="col-md-4">
+            <div class="media block-6">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 160c16-63.16 76.43-95.41 208-96a15.94 15.94 0 0 1 16 16v288a16 16 0 0 1-16 16c-128 0-177.45 25.81-208 64c-30.37-38-80-64-208-64c-9.88 0-16-8.05-16-17.93V80a15.94 15.94 0 0 1 16-16c131.57.59 192 32.84 208 96Zm0 0v288"/></svg>
+              </div>
+              <div class="media-body">
+                <h3 class="heading fw-bold">Core Values</h3>
+                <ul>
+                  <li>Professionalism and Integrity</li>
+                  <li>Quality</li>
+                  <li>Neutrality and Independence</li>
+                  <li>Accountability and Openness</li>
+                </ul>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div> <!-- .site-section -->
+    
+
+
+  <div class="site-section fund-raisers">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2 class="section-title mb-3 fw-bold fs-1">What We Do?</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="featured-section overlay-color-2">
+    <div class="container">
+      <div class="row equal-height-row">
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="card fundraise-item" style="display: flex; flex-direction: column;">
+            <div class="card-header">
+              <img src="{% static 'images/governance.png' %}" width="120" height="120" style="position:absolute; left:110px" />
+              <h3 class="card-title text-center" style="font-weight:800; margin-top: 130px; padding-left: 16px">Political Governance</h3>
+              <p class="text-center" style="padding-left: 10px; color: #29569F; font-size: 16px;">
+                Our work on political governance focuses on elections, promoting inclusivity, integrity and accountability of public institutions and bringing citizen's voices and views into policy processes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="card fundraise-item">
+            <div class="card-header">
+              <img src="{% static 'images/economy.png' %}" width="120" height="120" style="position:absolute; left:110px" />
+              <h3 class="card-title text-center" style="font-weight:800; margin-top: 130px; padding-left: 8px">Economic Advocacy</h3>
+              <p class="text-center" style="padding-left: 10px; color: #29569F; font-size: 16px;">
+                Our economists offer world-class expertise to bring efficiency in revenue generation and public spending. We track public sector audit, monitor state contracts and undertake political economy analysis to inform decision making.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="card fundraise-item" style="display: flex; flex-direction: column;">
+            <div class="card-header">
+              <img src="{% static 'images/social developement.png' %}" width="120" height="120" style="position:absolute; left:110px" />
+              <h3 class="card-title text-center" style="font-weight:800; margin-top: 130px; padding-left: 8px">Social Development</h3>
+              <p class="text-center" style="padding-left: 10px; color: #29569F; font-size: 16px;">
+                We focus our efforts on human capital building and work in partnership with coalitions and networks to make education, health and agricultural services benefit the poor and most marginalized including remote areas, women, youth and persons living with disability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="row my-3 equal-height-row">
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="card fundraise-item">
+          <div class="card-header">
+            <img src="{% static 'images/parliament.png' %}" width="120" height="120" style="position:absolute; left:110px" />
+            <h3 class="card-title text-center" style="font-weight:800; margin-top: 130px; font-size: 27px;">Parliamentary Monitoring</h3>
+            <p class="text-center" style="padding-left: 10px; color: #29569F; font-size: 16px;">
+              Our monitors work to ensure that both Parliament and Parliamentarians’ work is brought to the people to make parliament more open and responsive to the priorities of voters.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="card fundraise-item">
+          <div class="card-header">
+            <img src="{% static 'images/network.png' %}" width="120" height="120" style="position:absolute; left:110px" />
+            <h3 class="card-title text-center" style="font-weight:800; margin-top: 130px; padding-left: 16px">ICT for Open Governace</h3>
+            <p class="text-center" style="padding-left: 10px; color: #29569F; font-size: 16px;">
+              Our Tech for Open Governance platform provide space for government-citizen interaction. We empower citizens to track government services, monitor procurement, submit complaints, vote on issues and have a voice in public decision making.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="card fundraise-item">
+          <div class="card-header">
+            <img src="{% static 'images/analytics.png' %}" width="120" height="120" style="position:absolute; left:110px" />
+            <h3 class="card-title text-center" style="font-weight:800; margin-top: 130px; padding-left: 16px">Analytics</h3>
+            <p class="text-center" style="padding-left: 10px; color: #29569F; font-size: 16px;">
+              Our data analytics unit utilised credible primary data to identify trends and patterns, correlations and relationships, predictive modelling for public education and for making data-driven decisions. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> <!-- .featured-donate -->
+
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2 class="section-title mb-3 fw-bold fs-1">Latest <b style="color: #004F98"> Releases</b></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for release in releases %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card fundraise-item">
+                        <img class="card-img-top" src="{{ release.image.url}}" alt="{{ release.title}}" class="img-fluid" style="height: 350px; width: 100%;">
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">{{ release.title}}</a></h3>
+                            <span class="donation-time mb-3 d-block">{{ release.published_date }}</span>
+                            <p class="card-text">{{ release.content|truncatechars:150|safe}}</p>
+                        </div>
+                        <p><a href="{% url 'release_detail' release.id %}" class="link-underline px-2">Read More</a></p>
+                    </div>
+                    </div>
+                {% endfor %}
+
+                </div>
+                    <div class="view-more mt-5" style="text-align: left;">
+                        <a href="{% url "releases" %}" style="text-decoration: none; font-size: 20px">See more</a>
+                    </div>
+            </div>
+
+        </div>
+    </div> <!-- .section -->
+
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2 class="section-title mb-3 fw-bold fs-1">In the <b style="color: #004F98"> News</b></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for n in news %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card fundraise-item">
+                        <img class="card-img-top" src="{{ n.image.url}}" alt="{{ n.title}}" class="img-fluid" style="height: 280px; width: 100%;">
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="{{ n.url}}" target="_blank">{{ n.title}}</a></h3>
+                            <span class="donation-time mb-3 d-block">{{ n.published_date }}</span>
+                            <p class="card-text">Posted by: {{ n.posted_by}}</p>
+                        </div>
+                        <p><a href="{{ n.url}}" target="_blank" class="link-underline px-2">Read More</a></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="view-more mt-5" style="text-align: left;">
+                    <a href="#" style="text-decoration: none; font-size: 20px">See more</a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- .section -->
+
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2 class="section-title mb-3 fw-bold fs-1">Podcasts</b></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for podcast in podcasts %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card fundraise-item">
+                        <img class="card-img-top" src="{{ podcast.image.url}}" alt="{{ podcast.title}}" class="img-fluid" style="height: 280px; width: 100%;">
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="{{ podcast.url}}" target="_blank">{{ podcast.title}}</a></h3>
+                            <span class="donation-time mb-3 d-block">{{ podcast.published_date }}</span>
+                            <p class="card-text">Host: {{ podcast.host}}</p>
+                        </div>
+                        <p><a href="{{ podcast.url}}" target="_blank" class="link-underline px-2">Read More</a></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="view-more mt-5" style="text-align: left;">
+                    <a href="https://bridgingknowledgeandpolicy.podbean.com/?action=openPodcast&podcastId=pbblog14570187&podcastIdTag=kb6iv&utm_campaign=a_share_pp&utm_medium=dlink&utm_source=a_share" target="_blank" style="text-decoration: none; font-size: 20px">See more</a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- .section -->
+
+
+    <section class="w3l-clients py-5" id="clients">
+      <div class="call-w3 py-lg-5 py-md-4">
+          <div class="container">
+              <h2 class="section-title mb-5 fw-bold fs-1 text-center">Our Partners</h2>
+              <div class="company-logos text-center mt-5">
+                <div class="row logos">
+                      <div class="col-lg-2 col-md-3 col-4">
+                          <img src="{% static "images/images/AB.png" %}" alt="" class="img-fluid">
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-4">
+                          <img src="{% static "images/images/EU.jpg" %}" alt="" class="img-fluid">
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-4">
+                          <img src="{% static "images/images/usaid.jpg" %}" alt="" class="img-fluid">
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-4 mt-md-0 mt-4">
+                          <img src="{% static "images/images/Irish-Aid.png" %}" alt="" class="img-fluid">
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                          <img src="{% static "images/images/wb-logo.png" %}" alt="" class="img-fluid">
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                        <img src="{% static "images/images/GOSL.png" %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="row logos mt-2">
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="{% static "images/images/wademos_logo.png" %}" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="{% static "images/images/MIT-Logo.png" %}" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="{% static "images/images/FCDO logo.png" %}" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mt-md-0 mt-4">
+                      <img src="{% static "images/images/NYU-Logo.png" %}" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                      <img src="{% static "images/images/osiwa.png" %}" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                    <img src="{% static "images/images/UNDP.png" %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+
+                <div class="row logos mt-2">
+                  <div class="col-lg-2 col-md-3 col-4 offset-lg-4">
+                      <img src="{% static "images/images/IMF.png" %}" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="{% static "images/images/University-of-Chicago-Logo.png" %}" alt="" class="img-fluid">
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="w3l-clients" id="clients">
+    <div class="call-w3 py-lg-5 py-md-4">
+        <div class="container">
+            <h2 class="section-title mb-5 fw-bold fs-1 text-center">Whom we work with</h2>
+            <div class="company-logos text-center mt-5">
+              <div class="row logos">
+                    <div class="col-md-8 offset-md-2 col-8">
+                        <img src="{% static "images/cm.jpg" %}" alt="" class="img-fluid">
+                    </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-lg-4">
+          <h3 class="heading-section">About Us</h3>
+          <p class="lead">IGR is an independent think-tank and research organization collaborating with various stakeholders to reform public policy by conducting scientific research to foster institutional reforms through sustained engagementment in Sierra Leone.</p>
+          <p><a href="#" class="link-underline">Read  More</a></p>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h3 class="heading-section">Quick Links</h3>
+          <div class="block-21 d-flex mb-4">
+            <div class="text">
+              <h3 class="heading"><a href="#">Contact Us</a></h3>
+            </div>
+          </div>
+
+          <div class="block-21 d-flex mb-4">
+            <div class="text">
+              <h3 class="heading"><a href="#">Focus Areas</a></h3>
+            </div>
+          </div>
+
+          <div class="block-21 d-flex mb-4">
+            <div class="text">
+              <h3 class="heading"><a href="#">Media & Comms</a></h3>
+            </div>
+          </div>
+
+          <div class="block-21 d-flex mb-4">
+            <div class="text">
+              <h3 class="heading"><a href="#">FAQs</a></h3>
+            </div>
+          </div>
+
+          <div class="block-21 d-flex mb-4">
+            <div class="text">
+              <h3 class="heading"><a href="https://bridgingknowledgeandpolicy.podbean.com/?action=openPodcast&podcastId=pbblog14570187&podcastIdTag=kb6iv&utm_campaign=a_share_pp&utm_medium=dlink&utm_source=a_share" target="_blank">Podcasts</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="block-23">
+            <h3 class="heading-section">Get Connected</h3>
+              <ul>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg> 49H Spur Road, Freetown, Sierra Leone</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-telephone" viewBox="0 0 16 16">
+                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg> +232 30 992 907</span></a></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-envelope" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                </svg> info@igrsl.org</span></a></li>
+              </ul>
+          </div>
+
+          <div class="block-23 mt-5">
+            <h3 class="heading-section">Social Media Links</h3>
+            <ul class="list-unstyled">
+              <li style="display: inline; margin-right: 20px;"><a href="https://www.facebook.com/instituteforgovernancereform?mibextid=LQQJ4d" target="_blank" style="display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+              </svg></a></li>
+              <li style="display: inline; margin-right: 20px;"><a href="https://x.com/governancefor?s=11" target="_blank" style="display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+              </svg></a></li>
+              <li style="display: inline; margin-right: 20px;"><a href="https://instagram.com/instituteforgovernancereform?igshid=NzZhOTFlYzFmZQ==" target="_blank" style="display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+              </svg></a></li>
+              <li style="display: inline; margin-right: 20px;"><a href="#" target="_blank" style="display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg></a></li>
+            </ul>
+          </div>
+        </div>
+        
+        
+      </div>
+      <div class="row pt-5">
+        <div class="col-md-12 text-center">
+          
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> for Institute for Governance Reform (IGR). All rights reserved.</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static "js/jquery.min.js" %}"></script>
+  <script src="{% static "js/jquery-migrate-3.0.1.min.js" %}"></script>
+  <script src="{% static "js/popper.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+  <script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+  <script src="{% static "js/jquery.stellar.min.js" %}"></script>
+  <script src="{% static "js/owl.carousel.min.js" %}"></script>
+  <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+  <script src="{% static "js/bootstrap-datepicker.js" %}"></script>
+
+  <script src="{% static "js/jquery.fancybox.min.js" %}"></script>
+  
+  <script src="{% static "js/aos.js" %}"></script>
+  <script src="{% static "js/jquery.animateNumber.min.js" %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static "js/google-map.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
+
+
+  
+    
+  </body>
+</html>

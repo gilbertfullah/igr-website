@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-body">
+            {% if news.image %}
+              <img src="{{ news.image.url }}" class="img-fluid" alt="News Image">
+            {% endif %}
+            <h1 class="card-title">{{ news.title }}</h1>
+            <p class="card-text">{{ news.content }}</p>
+            <p class="card-text">Published on: {{ news.published_date }}</p>
+            <p class="card-text">Posted by: {{ news.posted_by }}</p>
+            {% if news.document %}
+              <a href="{{ news.document.url }}" class="btn btn-primary">View Document</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

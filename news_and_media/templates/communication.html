@@ -1,0 +1,158 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    .team-member {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .team-member-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .team-member-name {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    
+    .team-member-title {
+        margin-top: 5px;
+        color: #888;
+    }
+
+    .google-map {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 56.25%; /* Aspect ratio for 16:9 (change as needed) */
+    }
+
+    .google-map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    
+</style>
+
+<div class="slider-area" style="background-color: #004F98; margin-top: -15px">
+    <div class="single-slider section-overly d-flex align-items-center" style="height:200px">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2 style="color: white; text-align: left; font-size: 34px; font-weight: bold">Press Releases and Publications</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-tabs container-fluid" id="myTabs" role="tablist" style="background-color: #e9ecef;">
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef; padding-left: 58px;">
+      <a class="nav-link active" style="background-color: #e9ecef;" id="tab1" data-bs-toggle="tab" href="#content1" role="tab" aria-controls="content1" aria-selected="true">Press Releases and Publications</a>
+    </li>
+    <li class="nav-item" role="presentation" style="background-color: #e9ecef;">
+      <a class="nav-link" style="background-color: #e9ecef;" id="tab2" data-bs-toggle="tab" href="#content2" role="tab" aria-controls="content2" aria-selected="false">News and Events</a>
+    </li>
+  </ul>
+  
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="content1" role="tabpanel" aria-labelledby="tab1">
+        <div class="container py-4">
+            <div class="row mb-3">
+                {% for release in releases %}
+                <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
+                  <div class="news-event-card" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e1e1e1; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    <div class="news-event-image">
+                      <img src="{{ release.image.url }}" alt="News 1" style="height: 200px; width: 100%; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                    </div>
+                    <div class="news-event-details pt-4" style="padding-left: 10px">
+                      <p class="news-event-date">Published on: <b>{{ release.published_date }}</b></p>
+                      <p class="news-event-author">Posted by: <b>{{ release.author }}</b></p>
+                    </div>
+                    <h3 class="news-event-title" style="padding-left: 10px; padding-right: 10px">{{ release.title }}</h3>
+                    <p class="news-event-description" style="flex-grow: 1; padding-left: 10px;">{{ release.content|truncatechars:150 }}</p>
+                    <a href="{% url 'release_detail' release.id %}" style="text-decoration: none; font-size: 18px; text-align: left; padding-left: 10px; padding-bottom: 20px">Read More</a>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <nav aria-label="Page navigation example" class="offset-5 mb-5 mt-5">
+                <ul class="pagination">
+                    {% if jobs.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ releases.previous_page_number }}" style="background-color:#29569F; color:#FFFFFF">Previous</a></li>
+                    {% endif %}
+                    {% for num_page in  releases.paginator.page_range %}
+                    {% if releases.number == num_page %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ num_page }}" style="background-color:#29569F; color:#FFFFFF">{{num_page}}</a></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num_page }}" style="background-color:#29569F; color:#FFFFFF">{{num_page}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if jobs.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ releases.next_page_number }}" style="background-color:#29569F; color:#FFFFFF">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="content2" role="tabpanel" aria-labelledby="tab2">
+        <div class="container py-4">
+            <div class="row mb-3">
+                {% for release in releases %}
+                <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
+                  <div class="news-event-card" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e1e1e1; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    <div class="news-event-image">
+                      <img src="{{ release.image.url }}" alt="News 1" style="height: 200px; width: 100%; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                    </div>
+                    <div class="news-event-details pt-4" style="padding-left: 10px">
+                      <p class="news-event-date">Published on: <b>{{ release.published_date }}</b></p>
+                      <p class="news-event-author">Posted by: <b>{{ release.author }}</b></p>
+                    </div>
+                    <h3 class="news-event-title" style="padding-left: 10px; padding-right: 10px">{{ release.title }}</h3>
+                    <p class="news-event-description" style="flex-grow: 1; padding-left: 10px;">{{ release.content|truncatechars:150 }}</p>
+                    <a href="{% url 'release_detail' release.id %}" style="text-decoration: none; font-size: 18px; text-align: left; padding-left: 10px; padding-bottom: 20px">Read More</a>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <nav aria-label="Page navigation example" class="offset-5 mb-5 mt-5">
+                <ul class="pagination">
+                    {% if jobs.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ releases.previous_page_number }}" style="background-color:#29569F; color:#FFFFFF">Previous</a></li>
+                    {% endif %}
+                    {% for num_page in  releases.paginator.page_range %}
+                    {% if releases.number == num_page %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ num_page }}" style="background-color:#29569F; color:#FFFFFF">{{num_page}}</a></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num_page }}" style="background-color:#29569F; color:#FFFFFF">{{num_page}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if jobs.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ releases.next_page_number }}" style="background-color:#29569F; color:#FFFFFF">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  
+
+{% endblock content %}
+
+
