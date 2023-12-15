@@ -4,13 +4,7 @@ from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 import uuid
 
-class UUIDModel(models.Model):
-    id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
-    class Meta:
-        abstract = True
-
-class Release(UUIDModel):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+class Release(models.Model):
     title = models.CharField(verbose_name="Title", max_length=250)
     content = RichTextField(null=True, blank=True)
     published_date = models.DateField(verbose_name="Published Date")
@@ -31,7 +25,6 @@ class Release(UUIDModel):
         return self.title
     
 class Comment(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     author = models.CharField(verbose_name="Name", max_length=100)
     parent_post = models.ForeignKey(Release, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField(max_length=255)
@@ -48,7 +41,6 @@ class Comment(models.Model):
         return f'{self.author}: : {self.body[:30]}' 
     
 class Reply(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     author = models.CharField(verbose_name="Name", max_length=100)
     parent_comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="replies")
     body = models.CharField(max_length=150)
@@ -64,7 +56,6 @@ class Reply(models.Model):
         ]
 
 class News(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name="Title", max_length=250)
     content = RichTextField(null=True, blank=True)
     published_date = models.DateField(verbose_name="Published Date")
@@ -85,7 +76,6 @@ class News(models.Model):
         return self.title
     
 class Podcast(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name="Title", max_length=250)
     description = RichTextField(null=True, blank=True)
     published_date = models.DateField(verbose_name="Published Date")
@@ -105,7 +95,6 @@ class Podcast(models.Model):
         return self.title
     
 class Gallery(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name="Title", max_length=250)
     image = models.ImageField(upload_to='gallery/')
     
