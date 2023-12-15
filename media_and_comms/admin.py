@@ -9,10 +9,16 @@ class NewsAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 class ReleasesAdmin(admin.ModelAdmin):
-    list_filter = ['title', 'author', 'published_date']
-    list_display = ['title', 'author', 'published_date']
+    list_filter = ['title', 'author', 'get_tags', 'published_date']
+    list_display = ['title', 'author', 'get_tags', 'published_date']
     search_fields = ['title', 'author']
     list_per_page = 10
+    
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+    
+    def get_tags(self, obj):
+        return ", ".join(o for o in obj.tags.names())
     
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['author', 'body']

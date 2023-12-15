@@ -16,8 +16,8 @@ class EventsAdmin(admin.ModelAdmin):
 
 class ReleasesAdmin(admin.ModelAdmin):
     list_filter = ['title', 'author', 'published_date']
-    list_display = ['title', 'author', 'published_date']
-    search_fields = ['title', 'author']
+    list_display = ['title', 'author', 'get_tags', 'published_date']
+    search_fields = ['title', 'get_tags', 'author']
     list_per_page = 10
     
 class CommentAdmin(admin.ModelAdmin):

@@ -11,7 +11,7 @@ class News(models.Model):
     posted_by = models.CharField(verbose_name="Posted By", max_length=250)
     image = models.ImageField(verbose_name="Image", upload_to="news/")
     url = models.URLField()
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager(blank=True) 
     created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:

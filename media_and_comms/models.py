@@ -4,7 +4,12 @@ from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 import uuid
 
-class Release(models.Model):
+class UUIDModel(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
+    class Meta:
+        abstract = True
+
+class Release(UUIDModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name="Title", max_length=250)
     content = RichTextField(null=True, blank=True)
