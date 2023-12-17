@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
-import uuid
 
 class Release(models.Model):
     title = models.CharField(verbose_name="Title", max_length=250)
@@ -17,9 +16,6 @@ class Release(models.Model):
     class Meta:
         verbose_name_plural = "Releases"
         ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['id'], name='release_id_idx', opclasses=['uuid_ops'])
-        ]
     
     def __str__(self):
         return self.title
@@ -33,9 +29,6 @@ class Comment(models.Model):
     class Meta:
         verbose_name_plural = "Comments"
         ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['id'], name='comment_id_idx', opclasses=['uuid_ops'])
-        ]
     
     def __str__(self):
         return f'{self.author}: : {self.body[:30]}' 
@@ -51,9 +44,6 @@ class Reply(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['id'], name='reply_id_idx', opclasses=['uuid_ops'])
-        ]
 
 class News(models.Model):
     title = models.CharField(verbose_name="Title", max_length=250)
@@ -68,9 +58,6 @@ class News(models.Model):
     class Meta:
         verbose_name_plural = "News"
         ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['id'], name='news_id_idx', opclasses=['uuid_ops'])
-        ]
     
     def __str__(self):
         return self.title
@@ -87,9 +74,6 @@ class Podcast(models.Model):
     class Meta:
         verbose_name_plural = "Podcasts"
         ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['id'], name='podcast_id_idx', opclasses=['uuid_ops'])
-        ]
     
     def __str__(self):
         return self.title
@@ -100,9 +84,6 @@ class Gallery(models.Model):
     
     class Meta:
         verbose_name_plural = "Gallery"
-        indexes = [
-            models.Index(fields=['id'], name='gallery_id_idx', opclasses=['uuid_ops'])
-        ]
 
     def __str__(self):
         return self.title
