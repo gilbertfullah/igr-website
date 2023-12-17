@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from news_and_media.models import News, Events, Release, Podcast, Gallery
+from media_and_comms.models import News, Release, Podcast, Gallery
 
 def home(request):
     releases = Release.objects.all().order_by('-published_date')[:3]
