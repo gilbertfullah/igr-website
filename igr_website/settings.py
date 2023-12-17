@@ -85,16 +85,20 @@ WSGI_APPLICATION = 'igr_website.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-DATABASES = {
+if DEBUG:
+    DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
-            "NAME": "railway",
+            "NAME": "igr-website",
             "USER": "root",
-            "PASSWORD": "6HBgF3-faAD-A2AHfccBc6CFE5hHc5a6",
-            "HOST": 'roundhouse.proxy.rlwy.net',
-            "PORT": "43957",
+            "PASSWORD": "Yusuf290419#",
+            "HOST": '127.0.0.1',
+            "PORT": "3306"
         }
-}
+    }
+else:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
 
 
 # Password validation
