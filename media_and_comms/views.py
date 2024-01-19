@@ -36,7 +36,10 @@ def release_detail(request, release_id):
     release = get_object_or_404(Release, id=release_id)
     tags = release.tags.all()
     
-    related_releases = Release.objects.filter(tags=release.tags).exclude(id=release_id)[:2]
+    # Get related releases excluding the current release
+    related_releases = Release.objects.filter(tags__in=tags).exclude(id=release_id)[:2]
+    
+    #related_releases = Release.objects.filter(tags=release.tags).exclude(id=release_id)[:2]
     
     # Retrieve all comments for the post
     comments = Comment.objects.filter(parent_post=release)
@@ -95,7 +98,7 @@ def releases_by_tag(request, tag_slug):
 
 def news(request):
     news = News.objects.all().order_by('-published_date')
-    authors = News.objects.values_list('posted_by', flat=True).distinct()
+    authors = list(News.objects.values_list('posted_by', flat=True).distinct())
     tags = [tag.name for n in news for tag in n.tags.all()]
     tags = list(set(tags))  # Deduplicate tag names
     selected_author = request.GET.get('posted_by', 'all')

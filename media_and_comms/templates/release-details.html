@@ -284,9 +284,9 @@
                         </div>
                     </div>
                     <div class="single-post-content">
-                        <p class="alphabet mb-4">{{ release.content }}</p>
+                        <p class="alphabet mb-4">{{ release.content|safe }}</p>
                         {% if release.document %} 
-                            <button class="btn btn-style btn-primary mt-5 mb-5">View Document</button></div>
+                            <a class="btn btn-style btn-primary mt-5 mb-5">View Document</a>
                         {% endif %}
                         <div class="d-grid left-right mt-5 pb-md-5">
                             <div class="buttons-singles tags">
@@ -342,16 +342,17 @@
                                             <p>{{ reply.body }}</p>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
-                            {% endfor %}
+                            
                         </div>
         
                         <div class="leave-comment-form mt-5 pt-lg-4" id="reply">
                             <h4 class="side-title mb-2">Add a Comment or leave a Reply</h4>
                             <p class="mb-4">Your email address will not be published. Required fields are marked *
                             </p>
-                            <form action="{% url "add_comment" %}" method="post">
+                            <form action="{% url 'add_comment' id=comment.id %}" method="post">
                                 {% csrf_token %}
                                 <div class="input-grids row">
                                     <div class="form-group col-lg-12">
@@ -373,7 +374,7 @@
                                 </div>
                             </form>
                         </div>
-        
+                        {% endfor %}
                         <!-- related posts -->
                         {% if related_jobs %}
                         <div class="item mt-5 pt-lg-5">
