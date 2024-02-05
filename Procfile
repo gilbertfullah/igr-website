@@ -1,1 +1,0 @@
-web: gunicorn igr_website.wsgi:application --log-level=info --log-file -
