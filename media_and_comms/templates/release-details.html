@@ -286,7 +286,7 @@
                     <div class="single-post-content">
                         <p class="alphabet mb-4">{{ release.content|safe }}</p>
                         {% if release.document %} 
-                            <a class="btn btn-style btn-primary mt-5 mb-5">View Document</a>
+                            <a class="btn btn-style btn-primary mt-5 mb-5" href="{{release.document.url}}" target="_blank">View Document</a>
                         {% endif %}
                         <div class="d-grid left-right mt-5 pb-md-5">
                             <div class="buttons-singles tags">

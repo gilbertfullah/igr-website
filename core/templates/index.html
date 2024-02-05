@@ -76,7 +76,7 @@
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="{% url "home" %}">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'images/igr_logo.png' %}" alt="Logo" width="90" height="90" class="d-inline-block align-text-center">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,22 +85,22 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="{% url "home" %}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="{% url "about_us" %}" class="nav-link">Who Are We</a></li>
-            <li class="nav-item"><a href="{% url "focus_areas" %}" class="nav-link">Focus Areas</a></li>
+            <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{% url 'about_us' %}" class="nav-link">Who Are We</a></li>
+            <li class="nav-item"><a href="{% url 'focus_areas' %}" class="nav-link">Focus Areas</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Media & Comms
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url "releases" %}">Releases</a>
-                  <a class="dropdown-item" href="{% url "in_the_news" %}">In the News</a>
+                  <a class="dropdown-item" href="{% url 'releases' %}">Releases</a>
+                  <a class="dropdown-item" href="{% url 'in_the_news' %}">In the News</a>
                   <a class="dropdown-item" href="https://bridgingknowledgeandpolicy.podbean.com/?action=openPodcast&podcastId=pbblog14570187&podcastIdTag=kb6iv&utm_campaign=a_share_pp&utm_medium=dlink&utm_source=a_share" target="_blank">Podcasts</a>
                   <a class="dropdown-item" href="#">Gallery</a>
               </div>
             </li>
-            <li class="nav-item"><a href="{% url "faqs" %}" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="{% url "contact_us" %}" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="{% url 'faqs' %}" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="{% url 'contact_us' %}" class="nav-link">Contact</a></li>
         </ul>
     </div>
     

@@ -57,7 +57,7 @@
       
       
 
-          <style>
+        <style>
             /* Custom styles */
             .hero-section {
                 position: relative;
@@ -111,85 +111,85 @@
               position: absolute;
               top: 50%;
               transform: translateY(-10%);
+            }
+
+            .navbar-nav .nav-link.active {
+              color: #004F98 !important; /* Blue color for active items */
+              font-weight: 500; /* Bold text for active items */
+            }
+
+            .navbar-nav .nav-link:not(.active) {
+              color: white; /* Black color for non-active items */
+              font-weight: 400; /* Normal text weight for non-active items */
+            }
+
+            .navbar-nav .nav-link:hover {
+              color: #004F98; /* Blue color on hover */
+            }
+
+            /* Button styles */
+          .custom-button {
+              background-color: #FFEA00;
+              border: none;
+              border-radius: 10px;
+              color: black; /* Text color */
+              font-weight: 600;
+              font-size: 1.25rem; /* Adjust font size as needed */
+              padding: 1rem 2rem; /* Adjust padding as needed */
+              cursor: pointer;
+              transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+          /* Hover styles */
+          .custom-button:hover {
+              background-color: #FFD200; /* Deep yellow color */
+              color: black;
+              transform: scale(1.05); /* Add a slight scale animation on hover */
+              box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
           }
 
-          .navbar-nav .nav-link.active {
-            color: #004F98 !important; /* Blue color for active items */
-            font-weight: 500; /* Bold text for active items */
-          }
-
-          .navbar-nav .nav-link:not(.active) {
-            color: white; /* Black color for non-active items */
-            font-weight: 400; /* Normal text weight for non-active items */
-          }
-
-          .navbar-nav .nav-link:hover {
-            color: #004F98; /* Blue color on hover */
-          }
-
-          /* Button styles */
-        .custom-button {
-            background-color: #FFEA00;
-            border: none;
-            border-radius: 10px;
-            color: black; /* Text color */
-            font-weight: 600;
-            font-size: 1.25rem; /* Adjust font size as needed */
-            padding: 1rem 2rem; /* Adjust padding as needed */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-          }
-
-        /* Hover styles */
-        .custom-button:hover {
-            background-color: #FFD200; /* Deep yellow color */
-            color: black;
-            transform: scale(1.05); /* Add a slight scale animation on hover */
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .content {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          margin: 0;
-          max-width: 100%; /* Ensure content doesn't overflow horizontally */
-          overflow-x: hidden;
-        }
-
-        .content p {
-          text-align: center;
-          line-height: 2.0;
-          font-size: 24px;
-          font-weight: semibold;
-          margin-top: -50px;
-        }
-
-        .igr-link {
-          display: block; 
-          margin-top: -160px;
-        }
-
-        /* CSS for equal height cards */
-        .equal-height-card {
+          .content {
             display: flex;
-            flex-direction: column;
-            min-height: 300px;
-        }
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            max-width: 100%; /* Ensure content doesn't overflow horizontally */
+            overflow-x: hidden;
+          }
 
-        .equal-height-card .card-body {
-            flex-grow: 1;
-        }
+          .content p {
+            text-align: center;
+            line-height: 2.0;
+            font-size: 24px;
+            font-weight: semibold;
+            margin-top: -50px;
+          }
 
-        .img-fluid.rounded-lg {
-          transition: transform 0.3s ease;
-        }
-      
-        .img-fluid.rounded-lg:hover {
-            transform: scale(1.1); /* Adjust the scale factor as needed */
-        }
+          .igr-link {
+            display: block; 
+            margin-top: -160px;
+          }
+
+          /* CSS for equal height cards */
+          .equal-height-card {
+              display: flex;
+              flex-direction: column;
+              min-height: 300px;
+          }
+
+          .equal-height-card .card-body {
+              flex-grow: 1;
+          }
+
+          .img-fluid.rounded-lg {
+            transition: transform 0.3s ease;
+          }
+        
+          .img-fluid.rounded-lg:hover {
+              transform: scale(1.1); /* Adjust the scale factor as needed */
+          }
 
         </style>
     </head>
@@ -214,7 +214,7 @@
                     <a class="nav-link fs-5" aria-selected="true" href="{% url 'who_we_are' %}">Who We Are</a>
                 </li>
                 <li class="nav-item" style="padding-right: 20px">
-                  <a class="nav-link fs-5" aria-selected="true" href="{% url 'index' %}">Focus Areas</a>
+                  <a class="nav-link fs-5" aria-selected="true" href="{% url 'focus_areas' %}">Focus Areas</a>
                 </li>
                 <li class="nav-item" style="padding-right: 20px">
                   <a class="nav-link fs-5" aria-selected="true" href="{% url 'communication' %}">Media & Comms</a>
